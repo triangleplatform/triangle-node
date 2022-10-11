@@ -1,0 +1,50 @@
+{
+  "name": "triangle",
+  "version": "0.0.0",
+  "description": "Node.js library for the Triangle API.",
+  "keywords": [
+    "triangle",
+    "crypto",
+    "web3",
+    "wallet",
+    "api"
+  ],
+  "homepage": "https://github.com/triangleplatform/triangle-node",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/triangleplatform/triangle-node.git"
+  },
+  "bugs": {
+    "url": "https://github.com/triangleplatform/triangle-node/issues"
+  },
+  "author": "Triangle <hello@triangleplatform.com>",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc --outDir lib/",
+    "fix": "eslint --fix **/*.ts",
+    "lint": "eslint **/*.ts",
+    "prepare": "husky install",
+    "test": "echo TODO"
+  },
+  "lint-staged": {
+    "*.ts": "eslint --fix"
+  },
+  "dependencies": {
+    "node-fetch": "2.6.7",
+    "qs": "6.11.0"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "2.6.2",
+    "@types/qs": "6.9.7",
+    "@typescript-eslint/parser": "5.40.0",
+    "eslint": "8.25.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "husky": "8.0.1",
+    "lint-staged": "13.0.3",
+    "prettier": "2.7.1",
+    "typescript": "4.8.4"
+  }
+}
