@@ -9,8 +9,7 @@ export interface WalletCreateParams {
 export interface WalletListParams extends ExpandParams {
   vault?: string;
 }
-export interface WalletRetrieveParams extends ExpandParams {
-}
+export interface WalletRetrieveParams extends ExpandParams {}
 export interface WalletSendParams {
   amount: string;
   to: string;
@@ -26,7 +25,7 @@ export interface WalletSendTokenParams {
   to: string;
 }
 export interface WalletSendRawTransactionParams {
-  raw: string;
+  transaction: string;
 }
 export interface WalletSendTransactionParams {
   serialized: string;
@@ -49,10 +48,10 @@ const wallets = (config: Config) => {
     send: (id: string, params: WalletSendParams) => api.post(`/wallets/${id}/send`, params),
     sendNft: (id: string, params: WalletSendNftParams) =>
       api.post(`/wallets/${id}/send_nft`, params),
-    sendToken: (id: string, params: WalletSendTokenParams) =>
-      api.post(`/wallets/${id}/send_token`, params),
     sendRawTransaction: (id: string, params: WalletSendRawTransactionParams) =>
       api.post(`/wallets/${id}/send_raw_transaction`, params),
+    sendToken: (id: string, params: WalletSendTokenParams) =>
+      api.post(`/wallets/${id}/send_token`, params),
     sendTransaction: (id: string, params: WalletSendTransactionParams) =>
       api.post(`/wallets/${id}/send_transaction`, params),
     signMessage: (id: string, params: WalletSignMessageParams) =>
