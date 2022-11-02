@@ -1,3 +1,4 @@
+import addresses from "./resources/addresses";
 import chains from "./resources/chains";
 import networks from "./resources/networks";
 import vaults from "./resources/vaults";
@@ -9,6 +10,7 @@ const HOST = "https://api.triangleplatform.com";
 const PACKAGE_VERSION = require("../package.json").version;
 
 class Triangle {
+  addresses;
   chains;
   networks;
   vaults;
@@ -21,6 +23,7 @@ class Triangle {
       secret: secret,
     };
 
+    this.addresses = addresses(config);
     this.chains = chains(config);
     this.networks = networks(config);
     this.vaults = vaults(config);
