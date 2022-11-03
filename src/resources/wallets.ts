@@ -36,6 +36,9 @@ export interface WalletSignMessageParams {
 export interface WalletSignTransactionParams {
   serialized: string;
 }
+export interface WalletSignTypedDataParams {
+  encoded: string;
+}
 
 const wallets = (config: Config) => {
   const api = new Api(config);
@@ -58,6 +61,8 @@ const wallets = (config: Config) => {
       api.post(`/wallets/${id}/sign_message`, params),
     signTransaction: (id: string, params: WalletSignTransactionParams) =>
       api.post(`/wallets/${id}/sign_transaction`, params),
+    signTypedData: (id: string, params: WalletSignTypedDataParams) =>
+      api.post(`/wallets/${id}/sign_typed_data`, params),
     tokens: (id: string) => api.get(`/wallets/${id}/tokens`),
   };
 };
