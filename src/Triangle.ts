@@ -6,6 +6,7 @@ import networks from "./resources/networks";
 import vaults from "./resources/vaults";
 import wallets from "./resources/wallets";
 import { Config } from "./types";
+import webhooks from "./utils/webhooks";
 
 const BASE_PATH = "/v1";
 const HOST = "https://api.triangleplatform.com";
@@ -35,6 +36,10 @@ class Triangle {
     this.vaults = vaults(config);
     this.wallets = wallets(config);
   }
+
+  utils = {
+    webhooks,
+  };
 }
 
 export default Triangle;
