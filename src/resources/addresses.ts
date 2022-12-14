@@ -1,48 +1,44 @@
 import Api from "../utils/Api";
 import { Config, ExpandParams } from "../types";
 
-export interface AddressListParams extends ExpandParams {}
-export interface AddressMonitorParams {
-  address: string;
-  name: string;
+export interface AddressBalanceParams {
   network: string;
 }
-export interface AddressRetrieveParams extends ExpandParams {}
+export interface AddressListParams extends ExpandParams {
+  network: string;
+}
+export interface AddressNftsParams {
+  network: string;
+}
+export interface AddressRetrieveParams extends ExpandParams {
+  network: string;
+}
+export interface AddressTokensParams {
+  network: string;
+}
+export interface AddressTransfersParams {
+  network: string;
+}
+export interface AddressTxsParams extends ExpandParams {
+  network: string;
+}
 
-/**
- * @deprecated Use `accounts` or `contracts` instead.
- */
 const addresses = (config: Config) => {
   const api = new Api(config);
   return {
-    /**
-     * @deprecated Use `accounts.balance()` or `contracts.balance()` instead.
-     */
-    balance: (id: string) => api.get(`/addresses/${id}/balance`),
-    /**
-     * @deprecated Use `accounts.list()` or `contracts.list()` instead.
-     */
-    list: (params?: AddressListParams) => api.get(`/addresses`, params),
-    /**
-     * @deprecated Use `accounts.add()` or `contracts.add()` instead.
-     */
-    monitor: (params: AddressMonitorParams) => api.post(`/addresses`, params),
-    /**
-     * @deprecated Use `accounts.nft()` or `contracts.nft()` instead.
-     */
-    nfts: (id: string) => api.get(`/addresses/${id}/nfts`),
-    /**
-     * @deprecated Use `accounts.retrieve()` or `contracts.retrieve()` instead.
-     */
-    retrieve: (id: string, params?: AddressRetrieveParams) => api.get(`/addresses/${id}`, params),
-    /**
-     * @deprecated Use `accounts.tokens()` or `contracts.tokens()` instead.
-     */
-    tokens: (id: string) => api.get(`/addresses/${id}/tokens`),
-    /**
-     * @deprecated Use `accounts.transactions()` or `contracts.transactions()` instead.
-     */
-    transactions: (id: string) => api.get(`/addresses/${id}/transactions`),
+    balance: (address: string, params: AddressBalanceParams) =>
+      api.get(`/addresses/${address}/balance`, params),
+    list: (params: AddressListParams) => api.get(`/addresses`, params),
+    nfts: (address: string, params: AddressNftsParams) =>
+      api.get(`/addresses/${address}/nfts`, params),
+    retrieve: (address: string, params: AddressRetrieveParams) =>
+      api.get(`/addresses/${address}`, params),
+    tokens: (address: string, params: AddressTokensParams) =>
+      api.get(`/addresses/${address}/tokens`, params),
+    transfers: (address: string, params: AddressTransfersParams) =>
+      api.get(`/addresses/${address}/transfers`, params),
+    txs: (address: string, params: AddressTxsParams) =>
+      api.get(`/addresses/${address}/txs`, params),
   };
 };
 
