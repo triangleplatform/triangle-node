@@ -18,7 +18,11 @@ const accounts = (config: Config) => {
     nfts: (id: string) => api.get(`/accounts/${id}/nfts`),
     retrieve: (id: string, params?: AccountRetrieveParams) => api.get(`/accounts/${id}`, params),
     tokens: (id: string) => api.get(`/accounts/${id}/tokens`),
+    /**
+     * @deprecated Use `accounts.txs()` instead.
+     */
     transactions: (id: string) => api.get(`/accounts/${id}/transactions`),
+    txs: (id: string) => api.get(`/accounts/${id}/txs`),
   };
 };
 
