@@ -1,13 +1,13 @@
 import Api from "../utils/Api";
-import { Config, ExpandParams } from "../types";
+import { Config, ExpandParams, PaginationParams } from "../types";
 
-export interface BlockListParams extends ExpandParams {
+export interface BlockListParams extends ExpandParams, PaginationParams {
   network: string;
 }
 export interface BlockRetrieveParams extends ExpandParams {
   network: string;
 }
-export interface BlockTxsParams extends ExpandParams {
+export interface BlockTxsParams extends ExpandParams, PaginationParams {
   network: string;
 }
 

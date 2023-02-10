@@ -1,7 +1,7 @@
 import Api from "../utils/Api";
-import { Config, ExpandParams } from "../types";
+import { Config, ExpandParams, PaginationParams } from "../types";
 
-export interface TxListParams extends ExpandParams {
+export interface TxListParams extends ExpandParams, PaginationParams {
   network: string;
 }
 export interface TxRetrieveParams extends ExpandParams {

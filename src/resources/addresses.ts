@@ -1,10 +1,10 @@
 import Api from "../utils/Api";
-import { Config, ExpandParams } from "../types";
+import { Config, ExpandParams, PaginationParams } from "../types";
 
 export interface AddressBalanceParams {
   network: string;
 }
-export interface AddressListParams extends ExpandParams {
+export interface AddressListParams extends ExpandParams, PaginationParams {
   network: string;
 }
 export interface AddressNftsParams {
@@ -16,10 +16,10 @@ export interface AddressRetrieveParams extends ExpandParams {
 export interface AddressTokensParams {
   network: string;
 }
-export interface AddressTransfersParams {
+export interface AddressTransfersParams extends ExpandParams, PaginationParams {
   network: string;
 }
-export interface AddressTxsParams extends ExpandParams {
+export interface AddressTxsParams extends ExpandParams, PaginationParams {
   network: string;
 }
 
