@@ -1,12 +1,12 @@
 import Api from "../utils/Api";
-import { Config, ExpandParams } from "../types";
+import { Config, ExpandParams, PaginationParams } from "../types";
 
 export interface WalletCreateParams {
   name: string;
   network: string;
   vault: string;
 }
-export interface WalletListParams extends ExpandParams {
+export interface WalletListParams extends ExpandParams, PaginationParams {
   vault?: string;
 }
 export interface WalletRetrieveParams extends ExpandParams {}

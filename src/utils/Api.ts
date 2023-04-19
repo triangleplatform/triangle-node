@@ -12,7 +12,9 @@ class Api {
 
   async get(url: string, params?: any) {
     const response = await fetch(
-      `${this.#config.path}${url}${params ? `?${qs.stringify(params, { encode: false })}` : ""}`,
+      `${this.#config.path}${url}${
+        params ? `?${qs.stringify(params, { encode: false, skipNulls: true })}` : ""
+      }`,
       {
         headers: {
           Authorization: `Bearer ${this.#config.secret}`,

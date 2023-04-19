@@ -1,12 +1,12 @@
 import Api from "../utils/Api";
-import { Config, ExpandParams } from "../types";
+import { Config, ExpandParams, PaginationParams } from "../types";
 
 export interface AccountAddParams {
   address: string;
   name: string;
   network: string;
 }
-export interface AccountListParams extends ExpandParams {}
+export interface AccountListParams extends ExpandParams, PaginationParams {}
 export interface AccountRetrieveParams extends ExpandParams {}
 
 const accounts = (config: Config) => {
