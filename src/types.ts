@@ -2,6 +2,7 @@ export interface Config {
   packageVersion: string;
   path: string;
   secret: string;
+  mpcHosts?: string[];
 }
 
 export interface ExpandParams {

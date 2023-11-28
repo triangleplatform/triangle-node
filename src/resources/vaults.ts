@@ -3,6 +3,8 @@ import { Config, PaginationParams } from "../types";
 
 export interface VaultCreateParams {
   name: string;
+  mpc_type?: string; // mpc
+  mpc_hosts?: string[]; // mpc
 }
 export interface VaultListParams extends PaginationParams {}
 

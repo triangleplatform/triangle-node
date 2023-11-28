@@ -5,6 +5,7 @@ export interface WalletCreateParams {
   name: string;
   network: string;
   vault: string;
+  mpc_hosts?: string[]; // mpc
 }
 export interface WalletListParams extends ExpandParams, PaginationParams {
   vault?: string;
